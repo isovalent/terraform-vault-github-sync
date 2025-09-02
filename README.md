@@ -28,6 +28,7 @@ This has precedence over secrets/variable the other two aforementioned scopes.
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0 |
 | <a name="requirement_github"></a> [github](#requirement\_github) | ~> 6.0 |
+| <a name="requirement_sodium"></a> [sodium](#requirement\_sodium) | 0.0.3 |
 | <a name="requirement_vault"></a> [vault](#requirement\_vault) | ~> 5.1.0 |
 
 ## Providers
@@ -35,6 +36,7 @@ This has precedence over secrets/variable the other two aforementioned scopes.
 | Name | Version |
 |------|---------|
 | <a name="provider_github"></a> [github](#provider\_github) | ~> 6.0 |
+| <a name="provider_sodium"></a> [sodium](#provider\_sodium) | 0.0.3 |
 | <a name="provider_vault"></a> [vault](#provider\_vault) | ~> 5.1.0 |
 
 ## Modules
@@ -51,8 +53,11 @@ No modules.
 | [github_actions_organization_variable.variable](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_organization_variable) | resource |
 | [github_actions_secret.secret](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_secret) | resource |
 | [github_actions_variable.variable](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_variable) | resource |
+| [github_actions_organization_public_key.org_public_key](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/actions_organization_public_key) | data source |
+| [github_actions_public_key.repo_public_key](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/actions_public_key) | data source |
 | [github_app_token.app_token](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/app_token) | data source |
 | [github_repository.selected_repositories](https://registry.terraform.io/providers/integrations/github/latest/docs/data-sources/repository) | data source |
+| [sodium_encrypted_item.encrypted_item](https://registry.terraform.io/providers/killmeplz/sodium/0.0.3/docs/data-sources/encrypted_item) | data source |
 | [vault_generic_secret.app_key](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/data-sources/generic_secret) | data source |
 | [vault_generic_secret.secret](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/data-sources/generic_secret) | data source |
 

@@ -11,6 +11,11 @@ terraform {
       source  = "integrations/github"
       version = "~> 6.0"
     }
+
+    sodium = {
+      source  = "killmeplz/sodium"
+      version = "0.0.3"
+    }
   }
 }
 
