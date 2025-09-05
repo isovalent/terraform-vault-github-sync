@@ -12,7 +12,10 @@ data "github_actions_public_key" "repo_public_key" {
 # fetch secret from vault
 data "vault_generic_secret" "secret" {
   count = var.type != "token" ? 1 : 0
-  path  = "secret/${var.github_svt.team}/${var.organization}${var.repository != "" ? "/${var.repository}" : ""}${var.environment != "" ? "/${var.environment}" : ""}"
+  path = (
+    var.github_svt.path != "" ? var.github_svt.path :
+    "secret/${var.github_svt.team}/${var.organization}${var.repository != "" ? "/${var.repository}" : ""}${var.environment != "" ? "/${var.environment}" : ""}"
+  )
 }
 
 # fetch repository IDs for selected visibility
