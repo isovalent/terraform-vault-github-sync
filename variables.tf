@@ -31,6 +31,7 @@ variable "github_svt" {
   type = object({
     name            = string                     # Name of the secret
     key             = string                     # Key for the secret
+    path            = optional(string, "")       # Path to the secret in Vault (overrides default path construction)
     app_id          = optional(number, 0)        # GitHub App ID (if applicable)
     installation_id = optional(number, 0)        # GitHub App Installation ID (if applicable)
     team            = optional(string, "devops") # Team associated with the secret
