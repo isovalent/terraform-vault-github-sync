@@ -8,6 +8,11 @@ data "github_actions_public_key" "repo_public_key" {
   repository = var.repository
 }
 
+data "github_actions_environment_public_key" "repo_env_public_key" {
+  count       = var.repository != "" && var.environment != "" ? 1 : 0
+  repository  = var.repository
+  environment = var.environment
+}
 
 # fetch secret from vault
 data "vault_generic_secret" "secret" {
@@ -44,8 +49,11 @@ data "sodium_encrypted_item" "encrypted_item" {
 
   public_key_base64 = (
     var.repository == "" ?
-    data.github_actions_organization_public_key.org_public_key.key :
-    data.github_actions_public_key.repo_public_key[0].key
+    data.github_actions_organization_public_key.org_public_key.key : (
+      var.environment == "" ?
+      data.github_actions_public_key.repo_public_key[0].key :
+      data.github_actions_environment_public_key.repo_env_public_key[0].key
+    )
   )
 
   content_base64 = base64encode(
